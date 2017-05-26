@@ -1,0 +1,50 @@
+.box{
+  width:100%;
+  position: relative;
+  top: 20px;
+  max-width: 500px;
+  background: pink;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 30px;
+}
+.content{
+  width: 80%;
+  margin: 0 auto;
+  background: #ccc;
+  height: 80%;
+  margin-top:40px;
+  position: relative;
+}
+h1{
+  text-align: center;
+  color:red;
+  font-size: 40px;
+  background: yellow;
+}
+.ul1{
+  padding: 20px;
+  height:280px;
+  overflow: auto;
+}
+li{
+  background: #fff;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+.span1{
+  display: block;
+  float: right;
+  font-size: 25px;
+  color:red;
+}
+.input1{
+  width:80%;
+  padding: 5px;
+}
+.span2{
+  width:20%;
+  color:#87FC70;
+  font-size: 40px;
+}

@@ -6,7 +6,16 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color:#000;
+}
+a:focus{
+  color:#000;
+}
+h1{
+  text-align: center;
+}
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
@@ -17,9 +26,11 @@ body {
     clear: both;
 }
 
+
 .top {
   height: 400px;
-  background-color: rgb(0, 188, 212);;
+  background-color: rgb(0, 188, 212);
+
 }
 
 .bottom {
@@ -32,7 +43,9 @@ body {
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   margin: 60px auto;
 }
-
+.post-body{
+  height: 208px;
+}
 .comment-box {
   position: relative;
   padding-bottom: 120px;
@@ -79,9 +92,11 @@ body {
   background-color: rgb(242, 244, 246);
   color: rgb(76, 87, 101);
 }
+
 .post-body .comment-num {
-  background: #fff;
-  height:250px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 }
 .post-body .likes-num {
   position: absolute;
@@ -119,4 +134,9 @@ body {
   top: 10px;
   color: white;
   text-decoration: none;
+  }
+
+
+ul{
+  list-style: none;
 }

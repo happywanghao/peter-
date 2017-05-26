@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {BrowserRouter,Route,Link} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from './redux/store.js'
+import Post from './Post.js'
+import Home from './Home.js'
 import './App.css';
-import CommentBox from './CommentBox'
-import PostBody from './PostBody'
-
 class App extends Component {
   constructor(){
     super()
@@ -10,20 +12,19 @@ class App extends Component {
       value:''
     }
   }
-  addValue(a){
-    this.setState({value:a})
-  }
   render() {
     return (
-      <div>
-        <div className="top  clearfix">
-          <PostBody val={this.state.value} />
-        </div>
-        <div className="bottom clearfix">
-          <CommentBox fun1={this.addValue.bind(this)} />
-          {/* {this.state.value===this.value?'':this.setState({value:this.value})} */}
-        </div>
-      </div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Link to='/'><h3 style={{background:'yellow',height:'5vh',margin:'0'}}>HOME</h3></Link>
+            <Route exact path='/' component={Home}/>
+            <Route path='/post/:aa' component={Post}/>
+
+          </div>
+        </BrowserRouter>
+      </Provider>
+
     );
   }
 }
