@@ -6,7 +6,7 @@ class Post extends React.Component{
 
   render(){
     let str=this.props.match.params.aa
-    let data=this.props.rootData.filter(item=>item.id.toString()===str)
+    let data=this.props.listData.filter(item=>item.id.toString()===str)
     return (
       <div style={{height:'95vh',overflow:'auto'}}>
         <div className="top  clearfix">
@@ -21,7 +21,7 @@ class Post extends React.Component{
 }
 const mapStateToProps=(state)=>(
   {
-    rootData:state.rootData
+    listData:state.listData
   }
 )
 export default connect(mapStateToProps)(Post)
