@@ -1,11 +1,9 @@
 import {combineReducers} from 'redux'
-const list = [
-]
+
 const nowState={
-  showComplete:false,
-  showUnComplete:false,
+  filter:'ALL'
 }
-function listReducer(state=list,action){
+function listReducer(state=[],action){
   switch(action.type){
     case 'ADDLIST':
       return [...state,{title:action.content,complete:false,id:Date.now()}]
@@ -24,18 +22,15 @@ function stateRerucer(state=nowState,action){
   switch(action.type){
     case 'SHOWALL':
       return {
-        showComplete:false,
-        showUnComplete:false,
+        filter:'ALL'
       }
     case 'COMPLETE':
       return {
-      showComplete:true,
-      showUnComplete:false,
+      filter:'COM'
     }
     case 'UNCOMPLETE':
     return {
-      showComplete:false,
-      showUnComplete:true,
+      filter:'UNCOM'
     }
     default:
       return state

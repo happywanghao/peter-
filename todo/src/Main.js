@@ -14,12 +14,7 @@ class Main extends React.Component{
       input:''
     }
   }
-  hhh(s){
-    let arr=s.split('-')
-    let newArr=arr.map(item=>item.charAt(0).toUpperCase()+item.slice(1,item.length))
-    return newArr.join('')
-  }
-  handleClick1(){
+  handleClick1(e){
     store.dispatch({type:'ADDLIST',content:this.state.input})
     this.setState({input:''})
 
@@ -27,8 +22,9 @@ class Main extends React.Component{
   handleClick2(){
     store.dispatch({type:'SHOWALL'})
   }
-  handleClick4(){
+  handleClick4(e){
     store.dispatch({type:'COMPLETE'})
+    console.dir(e.target)
   }
   handleClick3(){
     store.dispatch({type:'UNCOMPLETE'})
@@ -37,9 +33,10 @@ class Main extends React.Component{
     store.dispatch({type:'TOCOMPLETE',content:e.target.id})
   }
   render(){
-    let showList=this.props.nowState.showComplete?
+    let showList=
+    this.props.nowState.filter==='COM'?
     this.props.list.filter(item=>item.complete):
-    this.props.nowState.showUnComplete?
+    this.props.nowState.filter==='UNCOM'?
     this.props.list.filter(item=>!item.complete):
     this.props.list
     return (

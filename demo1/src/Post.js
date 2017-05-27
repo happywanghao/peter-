@@ -5,7 +5,7 @@ import PostBody from './PostBody'
 class Post extends React.Component{
 
   render(){
-    let str=this.props.match.params.aa
+    let str=this.props.match.params.id
     let data=this.props.listData.filter(item=>item.id.toString()===str)
     return (
       <div style={{height:'95vh',overflow:'auto'}}>
