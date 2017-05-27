@@ -7,27 +7,15 @@ class Main extends React.Component{
     super()
     this.handleClick1=this.handleClick1.bind(this)
     this.handleClick2=this.handleClick2.bind(this)
-    this.handleClick3=this.handleClick3.bind(this)
-    this.handleClick4=this.handleClick4.bind(this)
     this.handleClick5=this.handleClick5.bind(this)
-    this.state={
-      input:''
-    }
   }
   handleClick1(e){
-    store.dispatch({type:'ADDLIST',content:this.state.input})
-    this.setState({input:''})
-
+    e.preventDefault()
+    store.dispatch({type:'ADDLIST',content:this.input.value})
+    this.input.value=''
   }
-  handleClick2(){
-    store.dispatch({type:'SHOWALL'})
-  }
-  handleClick4(e){
-    store.dispatch({type:'COMPLETE'})
-    console.dir(e.target)
-  }
-  handleClick3(){
-    store.dispatch({type:'UNCOMPLETE'})
+  handleClick2(e){
+    store.dispatch({type:'SHOWSTATE',content:e.target.id})
   }
   handleClick5(e){
     store.dispatch({type:'TOCOMPLETE',content:e.target.id})
@@ -56,13 +44,15 @@ class Main extends React.Component{
               ))}
             </ul>
             <div>
-              <input className='input1' type='text' value={this.state.input} onChange={(e)=>this.setState({input:e.target.value})}/>
-              <span className='span2' onClick={this.handleClick1}><Icon type="plus-circle" /></span>
+              <form onSubmit={this.handleClick1}>
+                <input className='input1' type='text' ref={item=>this.input=item} placeholder='请输入..' />
+                <button type='submit' className='span2'><Icon type="plus-circle" /></button>
+              </form>
             </div>
             <div>
-              <button onClick={this.handleClick2}>ALL</button>
-              <button onClick={this.handleClick3}>未完成</button>
-              <button onClick={this.handleClick4}>已完成</button>
+              <button id="ALL" onClick={this.handleClick2}>ALL</button>
+              <button id="UNCOM" onClick={this.handleClick2}>未完成</button>
+              <button id="COM" onClick={this.handleClick2}>已完成</button>
             </div>
           </div>
         </div>

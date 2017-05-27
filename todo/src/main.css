@@ -47,4 +47,7 @@ li{
   width:20%;
   color:#87FC70;
   font-size: 40px;
+  background: none;
+  border: none;
+  outline: none;
 }

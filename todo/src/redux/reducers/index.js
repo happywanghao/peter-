@@ -20,18 +20,10 @@ function listReducer(state=[],action){
 }
 function stateRerucer(state=nowState,action){
   switch(action.type){
-    case 'SHOWALL':
+    case 'SHOWSTATE':
       return {
-        filter:'ALL'
+        filter:action.content
       }
-    case 'COMPLETE':
-      return {
-      filter:'COM'
-    }
-    case 'UNCOMPLETE':
-    return {
-      filter:'UNCOM'
-    }
     default:
       return state
   }
